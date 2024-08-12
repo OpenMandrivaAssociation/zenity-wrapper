@@ -1,0 +1,22 @@
+#!/bin/sh
+case "${XDG_CURRENT_DESKTOP}" in
+Cinnamon|X-Cinnamon|GNOME*|LXDE|MATE|XFCE)
+	TOOL=zenity-gtk
+	;;
+*)
+	TOOL=qarma
+	;;
+esac
+
+if ! command -v $TOOL &>/dev/null; then
+	if command -v qarma &>/dev/null; then
+		TOOL=qarma
+	elif command -v zenity-gtk &>/dev/null; then
+		TOOL=zenity-gtk
+	fi
+	if ! command -v $TOOL &>/dev/null; then
+		echo "Neither qarma nor zenity-gtk is installed."
+		exit 1
+	fi
+fi
+exec $TOOL "$@"
