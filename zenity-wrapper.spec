@@ -1,12 +1,12 @@
 Name: zenity-wrapper
 Version: 1.0
-Release: 2
+Release: 3
 Source0: zenity
 Summary: Wrapper script that calls qarma or zenity, depending on desktop
 URL: https://openmandriva.org/
 License: GPL-3.0
 Group: User Interface/Desktops
-Requires: (qarma or zenity-gtk)
+Requires: (zenity-gtk or qarma)
 BuildArch: noarch
 
 %description
